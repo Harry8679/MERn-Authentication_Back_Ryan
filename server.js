@@ -4,11 +4,11 @@ const app = express();
 
 dotenv.config();
 
-app.get('/api/signup', (req, res) => {
-    res.json({
-        data: 'This is the endpoint for registration'
-    });
-});
+// import routes
+const authRoutes = require('./routes/auth.route');
+
+// Middlewares
+app.use('/api/v1', authRoutes);
 
 const port = process.env.PORT || 5000;
 
